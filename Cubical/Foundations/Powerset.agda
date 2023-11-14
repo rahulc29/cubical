@@ -63,3 +63,14 @@ subst-∈ A = subst (_∈ A)
                                             (⊆-refl-consequence A B)
                                             (λ _ → isSetℙ A B _ _)
                                             (λ _ → isPropΣ (⊆-isProp A B) (λ _ → ⊆-isProp B A) _ _))
+
+module _ where
+  open import Cubical.Data.Unit
+  open import Cubical.Data.Empty
+  
+  full : ℙ X
+  full = λ _ → Unit* , isPropUnit*
+
+  ∅ : ℙ X
+  ∅ = λ _ → ⊥* , isProp⊥*
+

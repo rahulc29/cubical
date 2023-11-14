@@ -23,7 +23,7 @@ import Cubical.Foundations.Prelude
 import Cubical.Foundations.Everything
 
 -- Kinds and properties of functions
-import Cubical.Functions.Everything
+-- import Cubical.Functions.Everything
 
 -- Data types and properties
 import Cubical.Data.Everything
