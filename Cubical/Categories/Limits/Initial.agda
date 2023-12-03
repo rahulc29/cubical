@@ -1,4 +1,4 @@
-{-# OPTIONS --safe #-}
+{-# OPTIONS --allow-unsolved-metas #-}
 module Cubical.Categories.Limits.Initial where
 
 open import Cubical.Foundations.Prelude

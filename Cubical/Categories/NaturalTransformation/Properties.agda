@@ -1,5 +1,5 @@
 
-{-# OPTIONS --safe #-}
+{-# OPTIONS --allow-unsolved-metas #-}
 
 module Cubical.Categories.NaturalTransformation.Properties where
 
