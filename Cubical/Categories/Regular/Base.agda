@@ -46,7 +46,7 @@ module _ (C : Category ℓ ℓ') where
   kernelPairHasCoequalizer : Type (ℓ-max ℓ ℓ')
   kernelPairHasCoequalizer = ∀ {x y : ob} → (f : Hom[ x , y ]) → ∥ KernelPair C f ∥₁
 
-  record isRegular : Type (ℓ-max ℓ ℓ') where
+  record IsRegular : Type (ℓ-max ℓ ℓ') where
     field
       arrowHasKernelPairs : hasKernelPairs C
       kPairHasCoequalizer : kernelPairHasCoequalizer

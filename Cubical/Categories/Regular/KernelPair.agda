@@ -24,6 +24,9 @@ module _ (C : Category ℓ ℓ') where
            KernelPair : Type (ℓ-max ℓ ℓ')
            KernelPair = Pullback C kernelPairCospan
 
+           isKernelPair : {z : ob} (p₁ : Hom[ z , x ]) (p₂ : Hom[ z , x ]) → Type (ℓ-max ℓ ℓ')
+           isKernelPair p₁ p₂ = Σ[ H ∈ (p₁ ⋆ f ≡ p₂ ⋆ f) ] isPullback C kernelPairCospan p₁ p₂ H
+
   KernelPairs : Type (ℓ-max ℓ ℓ')
   KernelPairs = ∀ {x y : ob} (f : Hom[ x , y ]) → KernelPair f
 
