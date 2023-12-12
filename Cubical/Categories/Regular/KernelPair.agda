@@ -5,6 +5,7 @@ module Cubical.Categories.Regular.KernelPair where
 open import Cubical.Foundations.Prelude
 open import Cubical.Categories.Category
 open import Cubical.Categories.Limits.Pullback
+open import Cubical.Categories.Regular.InternalRelation
 open import Cubical.HITs.PropositionalTruncation.Base
 
 private

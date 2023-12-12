@@ -30,15 +30,16 @@ module _ (C : Category ℓ ℓ') where
     open Relation r
 
     isReflexive : Type _
-    isReflexive = Σ[ δ ∈ Hom[ a , dom ] ] (δ ⋆ p₁ ≡ id) × (δ ⋆ p₂ ≡ id)
+    isReflexive = ∃[ δ ∈ Hom[ a , dom ] ] (δ ⋆ p₁ ≡ id) × (δ ⋆ p₂ ≡ id)
 
     isSymmetric : Type _
-    isSymmetric = Σ[ σ ∈ Hom[ dom , dom ] ] (σ ⋆ p₁ ≡ p₂) × (σ ⋆ p₂ ≡ p₁)
+    isSymmetric = ∃[ σ ∈ Hom[ dom , dom ] ] (σ ⋆ p₁ ≡ p₂) × (σ ⋆ p₂ ≡ p₁)
 
     isTransitive : Type _
-    isTransitive = Σ[ P ∈ Pullback C (cospan dom a dom p₁ p₂) ]
-                   Σ[ τ ∈ Hom[ P .pbOb , dom ] ] (τ ⋆ p₁ ≡ P .pbPr₁ ⋆ p₁) × (τ ⋆ p₂ ≡ P .pbPr₂ ⋆ p₂) where
+    isTransitive = ∃[ P ∈ Pullback C (cospan dom a dom p₁ p₂) ]
+                   ∃[ τ ∈ Hom[ P .pbOb , dom ] ] (τ ⋆ p₁ ≡ P .pbPr₁ ⋆ p₁) × (τ ⋆ p₂ ≡ P .pbPr₂ ⋆ p₂) where
       open Pullback
     
     isEquivalenceRelation : Type (ℓ-max ℓ ℓ')
     isEquivalenceRelation = isReflexive × isSymmetric × isTransitive
+

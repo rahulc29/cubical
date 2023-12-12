@@ -36,15 +36,15 @@ module _ (C : Category ℓ ℓ') where
   open Pullback
   regularEpicPreservedUnderPullback : Type (ℓ-max ℓ ℓ')
   regularEpicPreservedUnderPullback = ∀ {a b c : ob} (f : Hom[ b , a ]) (g : Hom[ c , a ])
-                                     → isRegularEpic f
+                                     → isRegularEpic g
                                      → (p : Pullback C (cospan c a b g f))
                                      ------------------------------------------------------
-                                     → isRegularEpic (p .pbPr₁)
+                                     → isRegularEpic (p .pbPr₂)
 
   -- The second component is to formulate the constraint
   -- that every kernel pair has a coequalizer
   kernelPairHasCoequalizer : Type (ℓ-max ℓ ℓ')
-  kernelPairHasCoequalizer = ∀ {x y : ob} → (f : Hom[ x , y ]) → ∥ KernelPair C f ∥₁
+  kernelPairHasCoequalizer = ∀ {x y : ob} → (f : Hom[ x , y ]) → (kp : KernelPair C f) → ∥ Coequalizer {C = C} (kp .pbPr₁) (kp .pbPr₂) ∥₁
 
   record IsRegular : Type (ℓ-max ℓ ℓ') where
     field
