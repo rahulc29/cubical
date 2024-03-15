@@ -40,9 +40,6 @@ module _ (C : Category ℓ ℓ') where
   monicId : {x : ob} → isMonic (id {x})
   monicId {a = a} {a' = a'} eq = sym (⋆IdR a) ∙ eq ∙ ⋆IdR a'
 
-  isJointMono : ∀ {ℓ''} {a : ob} (I : Type ℓ'') → (b : I → ob) → ((i : I) → Hom[ a , b i ]) → Type _
-  isJointMono {a = a} I b f = ∀ {c} → (g₁ g₂ : Hom[ c , a ]) → ((i : I) → (f i) ∘ g₁ ≡ (f i) ∘ g₂) → g₁ ≡ g₂
-
   retraction⇒monic : (f : Hom[ x , y ]) (lInv : Hom[ y , x ])
     → (lInv ∘ f ≡ id) → isMonic f
   retraction⇒monic f lInv eq =
@@ -60,9 +57,6 @@ module _ (C : Category ℓ ℓ') where
     → isEpic (g ⋆ f) → isEpic f
   precompCreatesEpic f g epic {b = b} {b' = b'} bf≡b'f =
     epic (⋆Assoc g f b ∙ cong (g ⋆_) bf≡b'f ∙ sym (⋆Assoc g f b'))
-
-  isJointEpic : ∀ {ℓ''} {b : ob} (I : Type ℓ'') → (a : I → ob) → ((i : I) → Hom[ a i , b ]) → Type _
-  isJointEpic {b = b} I a f = ∀ {c : ob} (g₁ g₂ : Hom[ b , c ]) → ((i : I) → g₁ ∘ (f i) ≡ g₂ ∘ (f i)) → g₁ ≡ g₂
 
   -- A morphism is split monic if it has a *retraction*
   isSplitMon : (Hom[ x , y ]) → Type ℓ'

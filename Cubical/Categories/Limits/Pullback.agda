@@ -1,4 +1,4 @@
-{-# OPTIONS --allow-unsolved-metas #-}
+{-# OPTIONS --safe #-}
 module Cubical.Categories.Limits.Pullback where
 
 open import Cubical.Foundations.Prelude
